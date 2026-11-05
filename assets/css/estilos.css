@@ -1,0 +1,568 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #e9eeee;
+    color: #222;
+    font-family: Arial, sans-serif;
+}
+
+.chat {
+    display: flex;
+    width: min(1000px, 95%);
+    height: 85vh;
+    min-height: 500px;
+    margin: 7vh auto;
+    background: white;
+    border: 1px solid #d5dddd;
+}
+
+.sidebar {
+    width: 340px;
+    padding: 20px;
+    border-right: 1px solid #ddd;
+}
+
+h1 {
+    margin: 0;
+    color: #075e54;
+    font-size: 25px;
+}
+
+.cabecera {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.acciones {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 6px;
+}
+
+.acciones button,
+.logout {
+    padding: 7px 9px;
+    color: #075e54;
+    background: #f1f4f4;
+    border: 0;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    text-decoration: none;
+}
+
+.acciones button:hover,
+.logout:hover {
+    background: #e3ebea;
+}
+
+#buscador {
+    width: 100%;
+    padding: 11px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+nav {
+    display: flex;
+    gap: 5px;
+    margin: 15px 0;
+}
+
+nav a,
+nav button {
+    flex: 1;
+    padding: 9px 5px;
+    background: #f1f4f4;
+    border: 0;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+nav a.activo,
+nav button.activo {
+    color: white;
+    background: #087e70;
+}
+
+#contador {
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 16px;
+}
+
+.persona {
+    margin: 0;
+    padding: 13px 8px;
+    border-bottom: 1px solid #eee;
+}
+
+.persona small {
+    display: block;
+    margin-top: 5px;
+    color: #777;
+}
+
+.solicitud {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.aceptar {
+    padding: 7px 10px;
+    color: white;
+    background: #087e70;
+    border: 0;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.bienvenida {
+    display: grid;
+    flex: 1;
+    padding: 30px;
+    place-items: center;
+    background: #f7f9f9;
+    text-align: center;
+}
+
+.bienvenida h2 {
+    color: #075e54;
+    font-size: 25px;
+}
+
+.bienvenida p {
+    color: #666;
+}
+
+body.oscuro {
+    background: #171b1b;
+    color: #eee;
+}
+
+.oscuro .chat,
+.oscuro .sidebar {
+    background: #242a2a;
+    border-color: #3d4645;
+}
+
+.oscuro h1,
+.oscuro .bienvenida h2 {
+    color: #70c7ad;
+}
+
+.oscuro #buscador,
+.oscuro nav button,
+.oscuro .acciones button,
+.oscuro .logout {
+    color: #eee;
+    background: #343c3b;
+    border-color: #4a5553;
+}
+
+.oscuro nav button.activo,
+.oscuro .aceptar {
+    background: #087e70;
+}
+
+.oscuro .bienvenida {
+    background: #1d2322;
+}
+
+.oscuro .bienvenida p,
+.oscuro .persona small {
+    color: #b4bfbd;
+}
+
+.oscuro .persona {
+    border-color: #3d4645;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+@media (max-width: 650px) {
+    .chat {
+        width: 100%;
+        height: 100vh;
+        min-height: 0;
+        margin: 0;
+    }
+
+    .sidebar {
+        width: 100%;
+        border-right: 0;
+    }
+
+    .bienvenida {
+        display: none;
+    }
+}
+
+.formulario {
+    width: min(420px, calc(100% - 32px));
+    margin: 10vh auto;
+    padding: 32px;
+    background: white;
+    border: 1px solid #d5dddd;
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgb(7 94 84 / 8%);
+}
+
+.formulario h1 {
+    margin-bottom: 8px;
+}
+
+.formulario h2 {
+    margin: 0 0 24px;
+    color: #075e54;
+    font-size: 20px;
+}
+
+.formulario form p {
+    margin: 0 0 18px;
+    color: #444;
+    line-height: 1.6;
+}
+
+.formulario input {
+    width: 100%;
+    margin-top: 6px;
+    padding: 11px 12px;
+    color: #222;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font: inherit;
+}
+
+.formulario input:focus {
+    border-color: #087e70;
+    outline: 2px solid rgb(8 126 112 / 18%);
+}
+
+.formulario .aceptar {
+    width: 100%;
+    padding: 11px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.formulario .aceptar:hover {
+    background: #075e54;
+}
+
+.formulario > p:last-child {
+    margin: 22px 0 0;
+    color: #666;
+    text-align: center;
+}
+
+.formulario a {
+    color: #087e70;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.formulario a:hover {
+    text-decoration: underline;
+}
+
+.formulario .mensaje,
+.formulario .error {
+    margin: 0 0 16px;
+    padding: 10px 12px;
+    border-radius: 5px;
+    line-height: 1.4;
+}
+
+.formulario .mensaje {
+    color: #075e54;
+    background: #e8f4f1;
+}
+
+.formulario .error {
+    color: #8b2929;
+    background: #faeaea;
+}
+
+.oscuro .formulario {
+    color: #eee;
+    background: #242a2a;
+    border-color: #3d4645;
+}
+
+.oscuro .formulario h2 {
+    color: #70c7ad;
+}
+
+.oscuro .formulario form p,
+.oscuro .formulario > p:last-child {
+    color: #b4bfbd;
+}
+
+.oscuro .formulario input {
+    color: #eee;
+    background: #343c3b;
+    border-color: #4a5553;
+}
+
+.oscuro .formulario .mensaje {
+    color: #b8e5d7;
+    background: #263e38;
+}
+
+.oscuro .formulario .error {
+    color: #ffc4c4;
+    background: #4a2d2d;
+}
+
+@media (max-width: 480px) {
+    .formulario {
+        margin: 6vh auto;
+        padding: 24px;
+    }
+}
+
+/* ---------- Pantalla de conversación (whats.php) ---------- */
+
+.usuario-logueado {
+    align-self: center;
+    color: #555;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.mensaje-aviso {
+    margin: 0 0 12px;
+    padding: 9px 12px;
+    color: #8b2929;
+    background: #faeaea;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.conversacion {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    min-width: 0;
+    background: #f7f9f9;
+}
+
+.cabecera-chat {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 12px 20px;
+    background: white;
+    border-bottom: 1px solid #ddd;
+}
+
+.cabecera-chat h2 {
+    flex: 1;
+    margin: 0;
+}
+
+.cabecera-chat h2 small {
+    display: block;
+    margin-top: 3px;
+    color: #777;
+    font-size: 12px;
+    font-weight: normal;
+}
+
+.volver {
+    display: none;
+    color: #075e54;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.mensajes {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 8px;
+    padding: 16px 20px;
+    overflow-y: auto;
+}
+
+.mensajes .vacio {
+    margin: auto;
+    color: #777;
+}
+
+.mensajes .mensaje {
+    max-width: 70%;
+    padding: 8px 12px;
+    border-radius: 8px;
+    overflow-wrap: anywhere;
+}
+
+.mensajes .mensaje.mio {
+    align-self: flex-end;
+    background: #d9fdd3;
+}
+
+.mensajes .mensaje.otro {
+    align-self: flex-start;
+    background: white;
+    border: 1px solid #e3e8e8;
+}
+
+.mensaje .emisor {
+    margin-right: 8px;
+    color: #075e54;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.mensaje .hora {
+    color: #888;
+    font-size: 11px;
+}
+
+.mensaje .texto {
+    margin: 5px 0 0;
+}
+
+.adjunto-imagen {
+    display: block;
+    max-width: 100%;
+    max-height: 260px;
+    margin-top: 6px;
+    border-radius: 6px;
+}
+
+.adjunto-archivo {
+    display: inline-block;
+    margin-top: 6px;
+    color: #087e70;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.adjunto-archivo:hover {
+    text-decoration: underline;
+}
+
+.conversacion > .mensaje-aviso {
+    margin: 0;
+    border-radius: 0;
+}
+
+.enviar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    background: white;
+    border-top: 1px solid #ddd;
+}
+
+.enviar input[type="text"] {
+    flex: 1;
+    min-width: 180px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font: inherit;
+}
+
+.enviar input[type="file"] {
+    max-width: 190px;
+    font-size: 12px;
+}
+
+.chat-abierto .sidebar {
+    display: flex;
+    flex-direction: column;
+}
+
+.oscuro .conversacion {
+    background: #1d2322;
+}
+
+.oscuro .cabecera-chat,
+.oscuro .enviar {
+    background: #242a2a;
+    border-color: #3d4645;
+}
+
+.oscuro .mensajes .mensaje.mio {
+    background: #144d37;
+}
+
+.oscuro .mensajes .mensaje.otro {
+    background: #2d3534;
+    border-color: #3d4645;
+}
+
+.oscuro .enviar input[type="text"] {
+    color: #eee;
+    background: #343c3b;
+    border-color: #4a5553;
+}
+
+.oscuro .usuario-logueado,
+.oscuro .cabecera-chat h2 small {
+    color: #b4bfbd;
+}
+
+@media (max-width: 650px) {
+    /* En móvil, dentro de una conversación se oculta la barra lateral y se muestra la flecha de volver */
+    .chat-abierto .sidebar {
+        display: none;
+    }
+
+    .volver {
+        display: block;
+    }
+
+    .mensajes .mensaje {
+        max-width: 88%;
+    }
+}
+
+/* ---------- Menú con enlaces y listas del chat ---------- */
+nav a {
+    text-align: center;
+    color: inherit;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+nav a.activo {
+    color: white;
+}
+
+.lista .vacio {
+    color: #777;
+    font-size: 14px;
+}
+
+.persona a {
+    color: #087e70;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.solicitud form {
+    display: flex;
+    gap: 5px;
+}
